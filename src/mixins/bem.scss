@@ -1,0 +1,27 @@
+$namespace:'zrm' !default;
+$bloack-prefix:'-' !default;
+$element-prefix:'__' !default;
+$modifer-prefix:'--' !default;
+
+@mixin b($block){
+    $B: $namespace + $bloack-prefix + $block;
+    .#{$B}{
+        @content;//占位符
+    }
+}
+@mixin e($element){
+    $slector:&;
+    @at-root {
+        #{$slector + $element-prefix  + $element}{
+            @content;
+        }
+    }
+}
+@mixin m($modifer){
+    $slector:&;
+    @at-root {
+        #{$slector + $modifer-prefix  + $modifer}{
+            @content;
+        }
+    }
+}

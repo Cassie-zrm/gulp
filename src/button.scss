@@ -1,0 +1,15 @@
+@use './mixins/bem.scss' as *;
+
+@include b(button){
+    width: 200px;
+    height: 52px;
+    @include e(inner){
+        display: flex;
+    }
+    @include m(sucess){
+        background: green;
+    }
+    @include m(error){
+        background: red;
+    }
+}

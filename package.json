@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "@types/gulp": "^4.0.17",
+    "@types/gulp-sass": "^5.0.4",
+    "consola": "^3.2.3",
+    "cssnano": "^7.0.4",
+    "gulp": "^5.0.0",
+    "gulp-cli": "^3.0.0",
+    "gulp-sass": "^5.1.0",
+    "postcss": "^8.4.39",
+    "sass": "^1.77.8",
+    "ts-node": "^10.9.2"
+  },
+  "scripts": {
+    "dev": "gulp watch",
+    "build": "gulp"
+  },
+  "devDependencies": {
+    "stylelint": "^16.7.0",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}
