@@ -16,22 +16,24 @@ const comilessCss = ()=>{
             preset: ['default',{}]
         })
     ])
-return new Transform({
-    objectMode:true,
-    transform(chunk,encoding,callback){
-        // const result=chunk.toString().replace(/\/\*.+?\*\//g,'')
-        // callback(null,result)
-        const file =chunk as Vinly
-        const cssstring = file.contents!.toString()
-        postcsser.process(cssstring,{from:file.path}).then((result)=>{
-            const name = path.basename(file.path)
-            //result.css 压缩之后的内容
-            file.contents = Buffer.from(result.css)
-            consola.success(`minfy ${name}${cssstring.length / 1024}-> ${result.css.length / 1024} 压缩成功`)
-        })
-        callback(null,chunk)
-    }
-})
+    return new Transform({
+        objectMode:true,
+        transform(chunk,encoding,callback){
+            // const result=chunk.toString().replace(/\/\*.+?\*\//g,'')
+            // callback(null,result)
+            const file =chunk as Vinly
+            const cssstring = file.contents!.toString()
+            postcsser.process(cssstring,{from:file.path}).then((result)=>{
+                const name = path.basename(file.path)
+                //result.css 压缩之后的内容
+                file.contents = Buffer.from(result.css)
+                consola.success(`minfy ${name}${cssstring.length / 1024}-> ${result.css.length / 1024} 压缩成功`)
+                callback(null,chunk)
+        
+            })
+        }
+    })
+    
 }
 const buildThemeBunle=()=>{
     const sass = gulpsass(dartSass)
